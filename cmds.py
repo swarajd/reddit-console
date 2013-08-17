@@ -11,6 +11,13 @@ def getSaved(r):
     saved = r.user.get_saved()
     for i in saved:
         print(i)
-        
 
-legalCmds = {"saved": getSaved}
+def sendMsg(r):
+    recipient = input("recipient> ")
+    subject = input("subject> ")
+    message = input("message> ")
+    r.send_message(recipient,subject,message)
+
+
+
+legalCmds = {"saved": getSaved, "send": sendMsg}

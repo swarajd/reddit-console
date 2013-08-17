@@ -28,5 +28,9 @@ def parseCommand(cmd):
     else:
         try:
             legalCmds[cmd](r)
-        except:
-            return "invalid command"
+        except AttributeError:
+            print("you aren't logged in")
+            return "you aren't logged in"
+        else:
+            print("misspelled command")
+            return "you aren't logged in"

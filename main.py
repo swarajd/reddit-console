@@ -13,6 +13,8 @@ def login():
         except:
             print("wrong credentials")
             login()
+    else:
+        logged_in = False
     return logged_in,username
     
 logged_in, uname = login()

@@ -14,10 +14,22 @@ def getSaved(r):
 
 def sendMsg(r):
     recipient = input("recipient> ")
-    subject = input("subject> ")
-    message = input("message> ")
+    subject   = input("subject> ")
+    message   = input("message> ")
     r.send_message(recipient,subject,message)
 
+def getMsgs(r):
+    for msg in r.get_unread(limit=20):
+        print(msg)
+        
+def getSubs(r):
+    subreddit = input("subreddit> ")
+    submissions = r.get_subreddit(subreddit).get_top(limit=10)
+    for i in submissions:
+        print(i)
+        
 
 
-legalCmds = {"saved": getSaved, "send": sendMsg}
+
+
+legalCmds = {"saved": getSaved, "send": sendMsg, "messages": getMsgs, "subreddit": getSubs}

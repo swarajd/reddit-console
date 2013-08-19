@@ -31,6 +31,6 @@ def parseCommand(cmd):
         except AttributeError:
             print("you aren't logged in")
             return "you aren't logged in"
-        else:
+        except KeyError:
             print("misspelled command")
-            return "you aren't logged in"
+            return "misspelled command"
